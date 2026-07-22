@@ -1,0 +1,7 @@
+{
+  "endpoints": {
+    "qwen-image-edit-image/edit_image": {},
+    "qwen-image-remix-image/remix_image": {},
+    "qwen-image-text-to-image/text_to_image": {}
+  }
+}

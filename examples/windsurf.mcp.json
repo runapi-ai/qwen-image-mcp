@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "qwen-image": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@runapi.ai/qwen-image-mcp"
+      ]
+    }
+  }
+}

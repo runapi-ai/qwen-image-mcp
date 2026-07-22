@@ -1,0 +1,176 @@
+{
+  "catalog_models": [
+    "qwen-image-edit-image",
+    "qwen-image-remix-image",
+    "qwen-image-text-to-image"
+  ],
+  "actions": {
+    "qwen-image/edit-image": {
+      "model": "Qwen Image",
+      "endpoint": "edit_image",
+      "task_type": "asynchronous",
+      "models": [
+        "qwen-image-edit-image"
+      ],
+      "fields_by_model": {
+        "qwen-image-edit-image": {
+          "model": {
+            "type": "string",
+            "required": true,
+            "description": "RunAPI model identifier."
+          },
+          "prompt": {
+            "type": "string",
+            "max": 2000,
+            "min": 1,
+            "length": true,
+            "required": true,
+            "description": "Edit instruction for the source image."
+          },
+          "source_image_url": {
+            "type": "string",
+            "required": true,
+            "description": "Public HTTPS source image URL (JPEG, PNG, or WebP; maximum 10 MB)."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:4",
+              "9:16",
+              "4:3",
+              "16:9"
+            ],
+            "default": "1:1",
+            "description": "Output aspect ratio."
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "png",
+              "jpeg"
+            ],
+            "default": "png",
+            "description": "Output image format."
+          },
+          "seed": {
+            "type": "integer",
+            "description": "Integer seed for reproducible results."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Webhook URL for asynchronous task updates."
+          }
+        }
+      }
+    },
+    "qwen-image/remix-image": {
+      "model": "Qwen Image",
+      "endpoint": "remix_image",
+      "task_type": "asynchronous",
+      "models": [
+        "qwen-image-remix-image"
+      ],
+      "fields_by_model": {
+        "qwen-image-remix-image": {
+          "model": {
+            "type": "string",
+            "required": true,
+            "description": "RunAPI model identifier."
+          },
+          "prompt": {
+            "type": "string",
+            "max": 5000,
+            "min": 1,
+            "length": true,
+            "required": true,
+            "description": "Prompt describing the requested remix."
+          },
+          "source_image_url": {
+            "type": "string",
+            "required": true,
+            "description": "Public HTTPS source image URL (JPEG, PNG, or WebP; maximum 10 MB)."
+          },
+          "strength": {
+            "type": "number",
+            "max": 1,
+            "min": 0,
+            "default": 0.8,
+            "description": "Creative deviation from the source image, from 0 (faithful) to 1 (creative)."
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "png",
+              "jpeg"
+            ],
+            "default": "png",
+            "description": "Output image format."
+          },
+          "seed": {
+            "type": "integer",
+            "description": "Integer seed for reproducible results."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Webhook URL for asynchronous task updates."
+          }
+        }
+      }
+    },
+    "qwen-image/text-to-image": {
+      "model": "Qwen Image",
+      "endpoint": "text_to_image",
+      "task_type": "asynchronous",
+      "models": [
+        "qwen-image-text-to-image"
+      ],
+      "fields_by_model": {
+        "qwen-image-text-to-image": {
+          "model": {
+            "type": "string",
+            "required": true,
+            "description": "RunAPI model identifier."
+          },
+          "prompt": {
+            "type": "string",
+            "max": 5000,
+            "min": 1,
+            "length": true,
+            "required": true,
+            "description": "Image generation prompt."
+          },
+          "aspect_ratio": {
+            "type": "string",
+            "enum": [
+              "1:1",
+              "3:4",
+              "9:16",
+              "4:3",
+              "16:9"
+            ],
+            "default": "1:1",
+            "description": "Output aspect ratio."
+          },
+          "seed": {
+            "type": "integer",
+            "description": "Integer seed for reproducible results."
+          },
+          "output_format": {
+            "type": "string",
+            "enum": [
+              "png",
+              "jpeg"
+            ],
+            "default": "png",
+            "description": "Output image format."
+          },
+          "callback_url": {
+            "type": "string",
+            "description": "Webhook URL for asynchronous task updates."
+          }
+        }
+      }
+    }
+  }
+}

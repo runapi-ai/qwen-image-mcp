@@ -1,0 +1,73 @@
+{
+  "name": "@runapi.ai/qwen-image-mcp",
+  "version": "0.1.0",
+  "description": "RunAPI Qwen Image MCP server for image generation: create tasks, poll results, and check pricing across 3 model variants from Claude Code, Codex, Cursor, and VS Code.",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "bin": {
+    "qwen-image-mcp": "dist/bin/qwen-image-mcp.js"
+  },
+  "files": [
+    "dist",
+    "data/contract.json",
+    "data/pricing.json",
+    "examples",
+    "server.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "tsx src/index.ts",
+    "prepack": "npm run build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": [
+    "runapi",
+    "runapi-ai",
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "ai-agents",
+    "claude-code",
+    "cursor",
+    "vscode",
+    "qwen-image",
+    "qwen-image-mcp",
+    "qwen-image-api",
+    "image-generation",
+    "ai-image",
+    "edit-image",
+    "remix-image",
+    "text-to-image"
+  ],
+  "author": "RunAPI",
+  "license": "Apache-2.0",
+  "homepage": "https://runapi.ai/models/qwen-image",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runapi-ai/qwen-image-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/runapi-ai/qwen-image-mcp/issues"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.29.0",
+    "@runapi.ai/mcp-core": "0.1.8",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "mcpName": "io.github.runapi-builder/qwen-image-mcp"
+}
